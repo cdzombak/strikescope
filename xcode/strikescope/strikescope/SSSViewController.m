@@ -11,7 +11,7 @@
 
 @implementation SSSViewController
 
-@synthesize imageScrollView, navigationBar, locationButton, plotTypeButton;
+@synthesize imageScrollView = _imageScrollView, navigationBar = _navigationBar, locationButton = _locationButton, plotTypeButton = _plotTypeButton;
 
 - (void)viewDidLoad
 {
