@@ -1,17 +1,26 @@
 #import "SSSAppDelegate.h"
 
 #import "SSSViewController.h"
+#import "SSSStrikeStarDataController.h"
+
+@interface SSSAppDelegate ()
+
+@property (strong, nonatomic) SSSStrikeStarDataController *dataController;
+
+@end
 
 @implementation SSSAppDelegate
 
 @synthesize window = _window;
 @synthesize viewController = _viewController;
+@synthesize dataController = _dataController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     self.viewController = [[SSSViewController alloc] initWithNibName:@"SSSViewController" bundle:nil];
+    self.viewController.dataController = [[SSSStrikeStarDataController alloc] init];
     
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
