@@ -14,8 +14,7 @@
 		9360E5CF15B2651100A58B42 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9360E5CE15B2651100A58B42 /* main.m */; };
 		9360E5D315B2651100A58B42 /* SSSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9360E5D215B2651100A58B42 /* SSSAppDelegate.m */; };
 		9360E5D615B2651100A58B42 /* SSSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9360E5D515B2651100A58B42 /* SSSViewController.m */; };
-		9360E5D915B2651100A58B42 /* SSSViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9360E5D715B2651100A58B42 /* SSSViewController_iPhone.xib */; };
-		9360E5DC15B2651100A58B42 /* SSSViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9360E5DA15B2651100A58B42 /* SSSViewController_iPad.xib */; };
+		9360E5DC15B2651100A58B42 /* SSSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9360E5DA15B2651100A58B42 /* SSSViewController.xib */; };
 		9360E5E615B2672600A58B42 /* rebel.png in Resources */ = {isa = PBXBuildFile; fileRef = 9360E5E415B2672600A58B42 /* rebel.png */; };
 		9360E5E715B2672600A58B42 /* rebel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9360E5E515B2672600A58B42 /* rebel@2x.png */; };
 /* End PBXBuildFile section */
@@ -33,8 +32,7 @@
 		9360E5D215B2651100A58B42 /* SSSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSSAppDelegate.m; sourceTree = "<group>"; };
 		9360E5D415B2651100A58B42 /* SSSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSSViewController.h; sourceTree = "<group>"; };
 		9360E5D515B2651100A58B42 /* SSSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSSViewController.m; sourceTree = "<group>"; };
-		9360E5D815B2651100A58B42 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SSSViewController_iPhone.xib; sourceTree = "<group>"; };
-		9360E5DB15B2651100A58B42 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SSSViewController_iPad.xib; sourceTree = "<group>"; };
+		9360E5DB15B2651100A58B42 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SSSViewController.xib; sourceTree = "<group>"; };
 		9360E5E415B2672600A58B42 /* rebel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rebel.png; sourceTree = "<group>"; };
 		9360E5E515B2672600A58B42 /* rebel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rebel@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,8 +106,7 @@
 		9360E5E215B2658F00A58B42 /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
-				9360E5D715B2651100A58B42 /* SSSViewController_iPhone.xib */,
-				9360E5DA15B2651100A58B42 /* SSSViewController_iPad.xib */,
+				9360E5DA15B2651100A58B42 /* SSSViewController.xib */,
 			);
 			name = Layouts;
 			sourceTree = "<group>";
@@ -175,8 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9360E5CD15B2651100A58B42 /* InfoPlist.strings in Resources */,
-				9360E5D915B2651100A58B42 /* SSSViewController_iPhone.xib in Resources */,
-				9360E5DC15B2651100A58B42 /* SSSViewController_iPad.xib in Resources */,
+				9360E5DC15B2651100A58B42 /* SSSViewController.xib in Resources */,
 				9360E5E615B2672600A58B42 /* rebel.png in Resources */,
 				9360E5E715B2672600A58B42 /* rebel@2x.png in Resources */,
 			);
@@ -206,20 +202,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		9360E5D715B2651100A58B42 /* SSSViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9360E5D815B2651100A58B42 /* en */,
-			);
-			name = SSSViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		9360E5DA15B2651100A58B42 /* SSSViewController_iPad.xib */ = {
+		9360E5DA15B2651100A58B42 /* SSSViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				9360E5DB15B2651100A58B42 /* en */,
 			);
-			name = SSSViewController_iPad.xib;
+			name = SSSViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
