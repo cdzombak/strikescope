@@ -17,6 +17,8 @@
 		9360E5DC15B2651100A58B42 /* SSSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9360E5DA15B2651100A58B42 /* SSSViewController.xib */; };
 		9360E5E615B2672600A58B42 /* rebel.png in Resources */ = {isa = PBXBuildFile; fileRef = 9360E5E415B2672600A58B42 /* rebel.png */; };
 		9360E5E715B2672600A58B42 /* rebel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9360E5E515B2672600A58B42 /* rebel@2x.png */; };
+		9360E5EB15B26DC100A58B42 /* SSSStrikeStarDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9360E5EA15B26DC100A58B42 /* SSSStrikeStarDataController.m */; };
+		9360E5EE15B26F6600A58B42 /* SSSStrikeStarResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9360E5ED15B26F6600A58B42 /* SSSStrikeStarResult.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,10 @@
 		9360E5DB15B2651100A58B42 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SSSViewController.xib; sourceTree = "<group>"; };
 		9360E5E415B2672600A58B42 /* rebel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rebel.png; sourceTree = "<group>"; };
 		9360E5E515B2672600A58B42 /* rebel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rebel@2x.png"; sourceTree = "<group>"; };
+		9360E5E915B26DC100A58B42 /* SSSStrikeStarDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSStrikeStarDataController.h; sourceTree = "<group>"; };
+		9360E5EA15B26DC100A58B42 /* SSSStrikeStarDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSStrikeStarDataController.m; sourceTree = "<group>"; };
+		9360E5EC15B26F6600A58B42 /* SSSStrikeStarResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSStrikeStarResult.h; sourceTree = "<group>"; };
+		9360E5ED15B26F6600A58B42 /* SSSStrikeStarResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSStrikeStarResult.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,7 @@
 				9360E5D215B2651100A58B42 /* SSSAppDelegate.m */,
 				9360E5D415B2651100A58B42 /* SSSViewController.h */,
 				9360E5D515B2651100A58B42 /* SSSViewController.m */,
+				9360E5E815B26DA500A58B42 /* Data */,
 				9360E5E315B2672600A58B42 /* Resources */,
 				9360E5E215B2658F00A58B42 /* Layouts */,
 				9360E5C915B2651100A58B42 /* Supporting Files */,
@@ -118,6 +125,17 @@
 				9360E5E515B2672600A58B42 /* rebel@2x.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		9360E5E815B26DA500A58B42 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				9360E5E915B26DC100A58B42 /* SSSStrikeStarDataController.h */,
+				9360E5EA15B26DC100A58B42 /* SSSStrikeStarDataController.m */,
+				9360E5EC15B26F6600A58B42 /* SSSStrikeStarResult.h */,
+				9360E5ED15B26F6600A58B42 /* SSSStrikeStarResult.m */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +206,8 @@
 				9360E5CF15B2651100A58B42 /* main.m in Sources */,
 				9360E5D315B2651100A58B42 /* SSSAppDelegate.m in Sources */,
 				9360E5D615B2651100A58B42 /* SSSViewController.m in Sources */,
+				9360E5EB15B26DC100A58B42 /* SSSStrikeStarDataController.m in Sources */,
+				9360E5EE15B26F6600A58B42 /* SSSStrikeStarResult.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
