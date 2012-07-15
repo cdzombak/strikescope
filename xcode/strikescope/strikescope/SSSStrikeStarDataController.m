@@ -38,6 +38,7 @@
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestURL cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:timeout];
     [request setValue:[SSSStrikeStarDataController refererForRegion:region plotType:plotType] forHTTPHeaderField:@"Referer"];
+    [request setValue:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_4) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.15 Safari/537.1" forHTTPHeaderField:@"User-Agent"];
     
     AFImageRequestOperation *operation = [AFImageRequestOperation imageRequestOperationWithRequest:request imageProcessingBlock:^UIImage *(UIImage *image) {
             // TODO: sharpen image?
