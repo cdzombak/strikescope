@@ -1,0 +1,1 @@
+This tool is a quick hack designed to complement other weather-nerd iOS apps I use, including TODO
