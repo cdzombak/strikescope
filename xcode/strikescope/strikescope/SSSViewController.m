@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *plotTypeButton;
 
 @property (strong, nonatomic) UIImageView *imageView;
+@property (strong, nonatomic, readonly) UIGestureRecognizer *scrollViewTripleTapRecognizer;
 
 @property (strong, nonatomic, readonly) NSDateFormatter *titleBarDateFormatter;
 @property (strong, nonatomic) NSTimer *updateTitleBarTimer;
@@ -25,7 +26,7 @@
 @implementation SSSViewController
 
 @synthesize imageScrollView = _imageScrollView, navigationBar = _navigationBar, locationButton = _locationButton, plotTypeButton = _plotTypeButton;
-@synthesize dataController = _dataController, imageView = _imageView;
+@synthesize dataController = _dataController, imageView = _imageView, scrollViewTripleTapRecognizer = _scrollViewTripleTapRecognizer;
 @synthesize titleBarDateFormatter = _titleBarDateFormatter, updateTitleBarTimer = _updateTitleBarTimer;
 @synthesize requestedRegion = _requestedRegion, requestedPlotType = _requestedPlotType, currentResult = _currentResult;
 
@@ -51,6 +52,8 @@
     self.requestedRegion = SSSStrikeStarRegionUS;
     
     [self requestUpdatePlot];
+    
+    [self.imageScrollView addGestureRecognizer:self.scrollViewTripleTapRecognizer];
 }
 
 - (void)viewDidUnload
@@ -102,6 +105,13 @@
         return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
     } else {
         return YES;
+    }
+}
+
+- (void)tripleTapped:(UIGestureRecognizer *)recognizer
+{
+    if (recognizer == self.scrollViewTripleTapRecognizer) {
+        [self saveCurrentImage];
     }
 }
 
@@ -175,6 +185,16 @@
     }
 }
 
+- (void)saveCurrentImage
+{
+    UIImageWriteToSavedPhotosAlbum(self.currentResult.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    #warning TODO 
+}
+
 #pragma mark UIScrollViewDelegate methods
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
@@ -241,6 +261,16 @@
         _titleBarDateFormatter.timeStyle = NSDateFormatterShortStyle;
     }
     return _titleBarDateFormatter;
+}
+
+- (UIGestureRecognizer *)scrollViewTripleTapRecognizer
+{
+    if (_scrollViewTripleTapRecognizer == nil) {
+        UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tripleTapped:)];
+        tapRecognizer.numberOfTapsRequired = 3;
+        _scrollViewTripleTapRecognizer = tapRecognizer;
+    }
+    return _scrollViewTripleTapRecognizer;
 }
 
 @end
