@@ -210,7 +210,13 @@
                   withResponse:(NSHTTPURLResponse *)response
                          error:(NSError *)error
 {
-    #warning TODO error handling
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Network Error", nil)
+                                                    message:error.localizedDescription
+                                                   delegate:nil
+                                          cancelButtonTitle:NSLocalizedString(@"Okay", nil)
+                                          otherButtonTitles:nil
+                          ];
+    [alert show];
 }
 
 #pragma mark Property Overrides
