@@ -13,8 +13,12 @@
 
 @property (strong, nonatomic) UIImageView *imageView;
 
+@property (strong, nonatomic, readonly) NSDateFormatter *titleBarDateFormatter;
+@property (strong, nonatomic) NSTimer *updateTitleBarTimer;
+
 @property (assign, nonatomic) SSSStrikeStarRegion requestedRegion;
 @property (assign, nonatomic) SSSStrikeStarPlotType requestedPlotType;
+@property (strong, nonatomic) SSSStrikeStarResult *currentResult;
 
 @end
 
@@ -22,7 +26,8 @@
 
 @synthesize imageScrollView = _imageScrollView, navigationBar = _navigationBar, locationButton = _locationButton, plotTypeButton = _plotTypeButton;
 @synthesize dataController = _dataController, imageView = _imageView;
-@synthesize requestedRegion = _requestedRegion, requestedPlotType = _requestedPlotType;
+@synthesize titleBarDateFormatter = _titleBarDateFormatter, updateTitleBarTimer = _updateTitleBarTimer;
+@synthesize requestedRegion = _requestedRegion, requestedPlotType = _requestedPlotType, currentResult = _currentResult;
 
 - (void)viewDidLoad
 {
@@ -59,6 +64,21 @@
     [super viewDidUnload];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    self.updateTitleBarTimer = [NSTimer scheduledTimerWithTimeInterval:30.0
+                                                                target:self
+                                                              selector:@selector(updateTitleBar)
+                                                              userInfo:nil
+                                                               repeats:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.updateTitleBarTimer invalidate];
+    self.updateTitleBarTimer = nil;
+}
+
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
     // TODO dedupe code w/relayoutImage
@@ -83,6 +103,29 @@
     } else {
         return YES;
     }
+}
+
+- (void)updateTitleBar
+{
+    if (self.currentResult == nil) return;
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 400, 44)]; // TODO un-hard-code frame
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont boldSystemFontOfSize:20.0];
+    label.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+    label.textAlignment = UITextAlignmentCenter;
+    
+    label.text = [self.titleBarDateFormatter stringFromDate:self.currentResult.dateRetrieved];
+    
+    NSTimeInterval resultAge = [self.currentResult.dateRetrieved timeIntervalSinceNow];
+    if (fabs(resultAge) > (10.0 * 60.0)) {
+        // if result age is more than 10 minutes
+        label.textColor = [UIColor redColor];
+    } else {
+        label.textColor = [UIColor whiteColor];
+    }
+    
+    self.navigationBar.topItem.titleView = label;
 }
 
 - (void)requestUpdatePlot
@@ -155,11 +198,11 @@
 {
     if (result.region != self.requestedRegion || result.plotType != self.requestedPlotType) return;
 
-    [self.imageView setImage:[result.image copy]];
+    self.currentResult = result;
+    [self.imageView setImage:result.image];
+    [self updateTitleBar];
     
     [self relayoutImage];
-    
-    #warning TODO check result time and update title
 }
 
 - (void)failedRequestForRegion:(SSSStrikeStarRegion)region
@@ -182,6 +225,16 @@
 {
     _requestedRegion = requestedRegion;
     [self requestUpdatePlot];
+}
+
+- (NSDateFormatter *)titleBarDateFormatter
+{
+    if (_titleBarDateFormatter == nil) {
+        _titleBarDateFormatter = [[NSDateFormatter alloc] init];
+        _titleBarDateFormatter.dateStyle = NSDateFormatterNoStyle;
+        _titleBarDateFormatter.timeStyle = NSDateFormatterShortStyle;
+    }
+    return _titleBarDateFormatter;
 }
 
 @end
