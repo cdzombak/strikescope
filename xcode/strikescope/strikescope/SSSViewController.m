@@ -17,6 +17,7 @@
 
 @property (strong, nonatomic, readonly) NSDateFormatter *titleBarDateFormatter;
 @property (strong, nonatomic) NSTimer *updateTitleBarTimer;
+@property (strong, nonatomic) NSTimer *autoRefreshTimer;
 
 @property (assign, nonatomic) SSSStrikeStarRegion requestedRegion;
 @property (assign, nonatomic) SSSStrikeStarPlotType requestedPlotType;
@@ -28,8 +29,10 @@
 
 @synthesize imageScrollView = _imageScrollView, navigationBar = _navigationBar, locationButton = _locationButton, plotTypeButton = _plotTypeButton;
 @synthesize dataController = _dataController, imageView = _imageView, scrollViewTripleTapRecognizer = _scrollViewTripleTapRecognizer;
-@synthesize titleBarDateFormatter = _titleBarDateFormatter, updateTitleBarTimer = _updateTitleBarTimer;
+@synthesize titleBarDateFormatter = _titleBarDateFormatter, updateTitleBarTimer = _updateTitleBarTimer, autoRefreshTimer = _autoRefreshTimer;
 @synthesize requestedRegion = _requestedRegion, requestedPlotType = _requestedPlotType, currentResult = _currentResult;
+
+#pragma mark - UIView Lifecycle & Callbacks
 
 - (void)viewDidLoad
 {
@@ -81,6 +84,11 @@
 {
     [self.updateTitleBarTimer invalidate];
     self.updateTitleBarTimer = nil;
+    
+    if (self.autoRefreshTimer != nil) {
+        [self.autoRefreshTimer invalidate];
+    }
+    self.autoRefreshTimer = nil;
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
@@ -144,6 +152,8 @@
     [self.dataController requestResultForRegion:self.requestedRegion plotType:self.requestedPlotType];
 }
 
+#pragma mark Layout & Drawing
+
 - (void)relayoutImage
 {
     self.imageView.frame = (CGRect) { {0,0}, self.imageView.image.size };
@@ -185,6 +195,8 @@
         setEdgeInsets();
     }
 }
+
+#pragma mark Image Saving
 
 - (void)saveCurrentImage
 {
@@ -231,6 +243,15 @@
     [self updateTitleBar];
     
     [self relayoutImage];
+    
+    if (self.autoRefreshTimer != nil) {
+        [self.autoRefreshTimer invalidate];
+    }
+    self.autoRefreshTimer = [NSTimer scheduledTimerWithTimeInterval:7.0*60.0
+                                                             target:self
+                                                           selector:@selector(requestUpdatePlot)
+                                                           userInfo:nil
+                                                            repeats:NO];
 }
 
 - (void)failedRequestForRegion:(SSSStrikeStarRegion)region
