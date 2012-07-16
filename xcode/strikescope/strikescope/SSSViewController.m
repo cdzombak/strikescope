@@ -97,6 +97,10 @@
                        0.9*(self.imageScrollView.bounds.size.height/self.imageView.image.size.height));
     
     self.imageScrollView.minimumZoomScale = scale;
+    if (self.imageScrollView.zoomScale < scale) {
+        self.imageScrollView.zoomScale = scale;
+    }
+    
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
         self.imageScrollView.maximumZoomScale = scale * 1.75;
     } else {
@@ -184,6 +188,7 @@
                        0.9*(self.imageScrollView.bounds.size.height/self.imageView.image.size.height));
     
     self.imageScrollView.zoomScale = scale;
+    
     self.imageScrollView.minimumZoomScale = scale;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
         self.imageScrollView.maximumZoomScale = scale * 1.75;
