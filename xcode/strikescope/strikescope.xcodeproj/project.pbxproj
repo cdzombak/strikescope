@@ -29,6 +29,7 @@
 		9360E60C15B2F42300A58B42 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9360E60015B2F42300A58B42 /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9360E60D15B2F42300A58B42 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9360E60215B2F42300A58B42 /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9360E60E15B2F42300A58B42 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9360E60415B2F42300A58B42 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		93A8231E15B467A500E7B356 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A8231D15B466C900E7B356 /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,8 @@
 		9360E60215B2F42300A58B42 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		9360E60315B2F42300A58B42 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		9360E60415B2F42300A58B42 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		93A8231C15B466C900E7B356 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = ../../../MBProgressHUD/MBProgressHUD.h; sourceTree = "<group>"; };
+		93A8231D15B466C900E7B356 /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = ../../../MBProgressHUD/MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,7 @@
 				9360E5E315B2672600A58B42 /* Resources */,
 				9360E5E215B2658F00A58B42 /* Layouts */,
 				9360E5C915B2651100A58B42 /* Supporting Files */,
+				93A8231B15B466AF00E7B356 /* MBProgressHUD */,
 				9360E5EF15B2F42200A58B42 /* AFNetworking */,
 			);
 			path = strikescope;
@@ -198,6 +202,15 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		93A8231B15B466AF00E7B356 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				93A8231C15B466C900E7B356 /* MBProgressHUD.h */,
+				93A8231D15B466C900E7B356 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -263,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93A8231E15B467A500E7B356 /* MBProgressHUD.m in Sources */,
 				9360E5CF15B2651100A58B42 /* main.m in Sources */,
 				9360E5D315B2651100A58B42 /* SSSAppDelegate.m in Sources */,
 				9360E5D615B2651100A58B42 /* SSSViewController.m in Sources */,

@@ -2,6 +2,7 @@
 #import "SSSStrikeStarDataController.h"
 #import "SSSStrikeStarResult.h"
 
+#import "MBProgressHUD.h"
 #import "QuartzCore/CALayer.h"
 
 @interface SSSViewController () <SSSStrikeStarDelegate, UIScrollViewDelegate>
@@ -192,7 +193,14 @@
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
-    #warning TODO 
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = NSLocalizedString(@"Saved!", nil);
+    
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    });
 }
 
 #pragma mark UIScrollViewDelegate methods
