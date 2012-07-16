@@ -162,6 +162,12 @@
 
 - (void)displayResult:(SSSStrikeStarResult *)result
 {
+    
+    NSLog(@"image size %@", NSStringFromCGSize(self.imageView.image.size));
+    NSLog(@"image view frame %@", NSStringFromCGRect(self.imageView.frame));
+    NSLog(@"scroll view bounds %@", NSStringFromCGRect(self.imageScrollView.bounds));
+    NSLog(@"scroll view frame %@", NSStringFromCGRect(self.imageScrollView.frame));
+    
     self.imageScrollView.zoomScale = 1.0;
     
     [self.imageView setImage:result.image];
