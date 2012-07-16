@@ -168,7 +168,9 @@
     NSLog(@"scroll view bounds %@", NSStringFromCGRect(self.imageScrollView.bounds));
     NSLog(@"scroll view frame %@", NSStringFromCGRect(self.imageScrollView.frame));
     
-    self.imageScrollView.zoomScale = 1.0;
+    if ([UIDevice currentDevice].orientation != UIDeviceOrientationUnknown) {
+        self.imageScrollView.zoomScale = 1.0;
+    }
     
     [self.imageView setImage:result.image];
     [self updateTitleBar];
@@ -195,7 +197,9 @@
     float scale = MIN( 0.9*(self.imageScrollView.bounds.size.width/self.imageView.image.size.width),
                        0.9*(self.imageScrollView.bounds.size.height/self.imageView.image.size.height));
     
-    self.imageScrollView.zoomScale = scale;
+    if ([UIDevice currentDevice].orientation != UIDeviceOrientationUnknown) {
+        self.imageScrollView.zoomScale = scale;
+    }
     
     self.imageScrollView.minimumZoomScale = scale;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
