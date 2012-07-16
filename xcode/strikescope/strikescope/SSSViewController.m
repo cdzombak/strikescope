@@ -51,6 +51,8 @@
     [self.imageScrollView addSubview:self.imageView];
     
     [self.imageScrollView addGestureRecognizer:self.scrollViewTripleTapRecognizer];
+    
+    if (self.currentResult != nil) [self displayResult:self.currentResult]; 
 }
 
 - (void)viewDidUnload
@@ -145,6 +147,23 @@
     [self.dataController requestResultForRegion:self.requestedRegion plotType:self.requestedPlotType];
 }
 
+- (void)displayResult:(SSSStrikeStarResult *)result
+{
+    [self.imageView setImage:result.image];
+    [self updateTitleBar];
+    
+    [self relayoutImage];
+    
+    if (self.autoRefreshTimer != nil) {
+        [self.autoRefreshTimer invalidate];
+    }
+    self.autoRefreshTimer = [NSTimer scheduledTimerWithTimeInterval:7.0*60.0
+                                                             target:self
+                                                           selector:@selector(requestUpdatePlot)
+                                                           userInfo:nil
+                                                            repeats:NO];
+}
+
 #pragma mark Layout & Drawing
 
 - (void)relayoutImage
@@ -232,19 +251,7 @@
     if (result.region != self.requestedRegion || result.plotType != self.requestedPlotType) return;
 
     self.currentResult = result;
-    [self.imageView setImage:result.image];
-    [self updateTitleBar];
-    
-    [self relayoutImage];
-    
-    if (self.autoRefreshTimer != nil) {
-        [self.autoRefreshTimer invalidate];
-    }
-    self.autoRefreshTimer = [NSTimer scheduledTimerWithTimeInterval:7.0*60.0
-                                                             target:self
-                                                           selector:@selector(requestUpdatePlot)
-                                                           userInfo:nil
-                                                            repeats:NO];
+    if (self.isViewLoaded && self.view.window) [self displayResult:self.currentResult];
 }
 
 - (void)failedRequestForRegion:(SSSStrikeStarRegion)region
