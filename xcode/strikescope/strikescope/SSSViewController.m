@@ -162,6 +162,8 @@
 
 - (void)displayResult:(SSSStrikeStarResult *)result
 {
+    self.imageScrollView.zoomScale = 1.0;
+    
     [self.imageView setImage:result.image];
     [self updateTitleBar];
     
