@@ -189,6 +189,8 @@
             return NSLocalizedString(@"Southeast US", nil);
         case SSSStrikeStarRegionUSSW:
             return NSLocalizedString(@"Southwest US", nil);
+        case SSSStrikeStarRegionCount:
+            break;
     }
     return @"unknown region in userStringForRegion";
 }
@@ -203,6 +205,8 @@
             return NSLocalizedString(@"24h Summary", nil);
         case SSSStrikeStarPlotType60mDensity:
             return NSLocalizedString(@"60m Density", nil);
+        case SSSStrikeStarPlotTypeCount:
+            break;
     }
     return @"unknown plot type in userStringForPlotType";
 }
