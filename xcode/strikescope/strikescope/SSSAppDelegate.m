@@ -2,6 +2,7 @@
 
 #import "SSSViewController.h"
 #import "SSSStrikeStarDataController.h"
+#import "AFNetworkActivityIndicatorManager.h"
 
 @interface SSSAppDelegate ()
 
@@ -17,6 +18,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleBlackOpaque];
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     self.viewController = [[SSSViewController alloc] initWithNibName:@"SSSViewController" bundle:nil];
@@ -24,8 +28,6 @@
     
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
-    
-    [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleBlackOpaque];
     
     return YES;
 }
