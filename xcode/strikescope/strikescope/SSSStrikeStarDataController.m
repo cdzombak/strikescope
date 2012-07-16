@@ -173,12 +173,38 @@
 
 + (NSString *)userStringForRegion:(SSSStrikeStarRegion)region
 {
-    #warning TODO 
+    // TODO refactor this out into a static array
+    switch (region) {
+        case SSSStrikeStarRegionUS:
+            return NSLocalizedString(@"US", nil);
+        case SSSStrikeStarRegionUSNC:
+            return NSLocalizedString(@"North Central US", nil);
+        case SSSStrikeStarRegionUSNE:
+            return NSLocalizedString(@"Northeast US", nil);
+        case SSSStrikeStarRegionUSNW:
+            return NSLocalizedString(@"Northwest US", nil);
+        case SSSStrikeStarRegionUSSC:
+            return NSLocalizedString(@"South Central US", nil);
+        case SSSStrikeStarRegionUSSE:
+            return NSLocalizedString(@"Southeast US", nil);
+        case SSSStrikeStarRegionUSSW:
+            return NSLocalizedString(@"Southwest US", nil);
+    }
+    return @"unknown region in userStringForRegion";
 }
 
 + (NSString *)userStringForPlotType:(SSSStrikeStarPlotType)plotType
 {
-    #warning TODO 
+    // TODO refactor this out into a static array
+    switch (plotType) {
+        case SSSStrikeStarPlotType60mPlot:
+            return NSLocalizedString(@"60m Plot", nil);
+        case SSSStrikeStarPlotType24hSummary:
+            return NSLocalizedString(@"24h Summary", nil);
+        case SSSStrikeStarPlotType60mDensity:
+            return NSLocalizedString(@"60m Density", nil);
+    }
+    return @"unknown plot type in userStringForPlotType";
 }
 
 @end
