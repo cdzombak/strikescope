@@ -30,6 +30,7 @@
 		9360E60D15B2F42300A58B42 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9360E60215B2F42300A58B42 /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9360E60E15B2F42300A58B42 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9360E60415B2F42300A58B42 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		93A8231E15B467A500E7B356 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A8231D15B466C900E7B356 /* MBProgressHUD.m */; };
+		93A8232115B4872000E7B356 /* SSSUserDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A8232015B4872000E7B356 /* SSSUserDefaultsManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,8 @@
 		9360E60415B2F42300A58B42 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		93A8231C15B466C900E7B356 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = ../../../MBProgressHUD/MBProgressHUD.h; sourceTree = "<group>"; };
 		93A8231D15B466C900E7B356 /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = ../../../MBProgressHUD/MBProgressHUD.m; sourceTree = "<group>"; };
+		93A8231F15B4872000E7B356 /* SSSUserDefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSUserDefaultsManager.h; sourceTree = "<group>"; };
+		93A8232015B4872000E7B356 /* SSSUserDefaultsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSUserDefaultsManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 			children = (
 				9360E5D115B2651100A58B42 /* SSSAppDelegate.h */,
 				9360E5D215B2651100A58B42 /* SSSAppDelegate.m */,
+				93A8231F15B4872000E7B356 /* SSSUserDefaultsManager.h */,
+				93A8232015B4872000E7B356 /* SSSUserDefaultsManager.m */,
 				9360E5D415B2651100A58B42 /* SSSViewController.h */,
 				9360E5D515B2651100A58B42 /* SSSViewController.m */,
 				9360E5E815B26DA500A58B42 /* Data */,
@@ -292,6 +297,7 @@
 				9360E60C15B2F42300A58B42 /* AFURLConnectionOperation.m in Sources */,
 				9360E60D15B2F42300A58B42 /* AFXMLRequestOperation.m in Sources */,
 				9360E60E15B2F42300A58B42 /* UIImageView+AFNetworking.m in Sources */,
+				93A8232115B4872000E7B356 /* SSSUserDefaultsManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

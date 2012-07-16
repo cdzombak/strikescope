@@ -19,8 +19,6 @@
 @property (strong, nonatomic) NSTimer *updateTitleBarTimer;
 @property (strong, nonatomic) NSTimer *autoRefreshTimer;
 
-@property (assign, nonatomic) SSSStrikeStarRegion requestedRegion;
-@property (assign, nonatomic) SSSStrikeStarPlotType requestedPlotType;
 @property (strong, nonatomic) SSSStrikeStarResult *currentResult;
 
 @end
@@ -44,18 +42,13 @@
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"rebel"]]];
     
     self.imageView = [[UIImageView alloc] initWithFrame:self.imageScrollView.frame];
-    [self.imageScrollView addSubview:self.imageView];
-
     self.imageView.layer.shadowColor = [UIColor blackColor].CGColor;
     self.imageView.layer.shadowOffset = CGSizeMake(0, 0);
     self.imageView.layer.shadowOpacity = 1.0;
     self.imageView.layer.shadowRadius = 10.0;
     self.imageView.clipsToBounds = NO;
     
-    self.requestedPlotType = SSSStrikeStarPlotType60mPlot;
-    self.requestedRegion = SSSStrikeStarRegionUS;
-    
-    [self requestUpdatePlot];
+    [self.imageScrollView addSubview:self.imageView];
     
     [self.imageScrollView addGestureRecognizer:self.scrollViewTripleTapRecognizer];
 }

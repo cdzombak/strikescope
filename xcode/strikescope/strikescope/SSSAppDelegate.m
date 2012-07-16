@@ -2,6 +2,7 @@
 
 #import "SSSViewController.h"
 #import "SSSStrikeStarDataController.h"
+#import "SSSUserDefaultsManager.h"
 #import "AFNetworkActivityIndicatorManager.h"
 
 @interface SSSAppDelegate ()
@@ -25,6 +26,8 @@
     
     self.viewController = [[SSSViewController alloc] initWithNibName:@"SSSViewController" bundle:nil];
     self.viewController.dataController = [[SSSStrikeStarDataController alloc] init];
+    self.viewController.requestedRegion = SSSUserDefaultsManager.defaultRegion;
+    self.viewController.requestedPlotType = SSSUserDefaultsManager.defaultPlotType;
     
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
