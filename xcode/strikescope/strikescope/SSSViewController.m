@@ -52,6 +52,9 @@
     
     [self.imageScrollView addGestureRecognizer:self.scrollViewTripleTapRecognizer];
     
+    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reloadButtonTouched:)];
+    self.navigationBar.topItem.rightBarButtonItem = refreshButton;
+    
     if (self.currentResult != nil) [self displayResult:self.currentResult]; 
 }
 
@@ -117,6 +120,12 @@
     if (recognizer == self.scrollViewTripleTapRecognizer) {
         [self saveCurrentImage];
     }
+}
+
+- (void)reloadButtonTouched:(id)sender
+{
+    [self.dataController clearInMemoryCache];
+    [self requestUpdatePlot];
 }
 
 - (void)updateTitleBar
