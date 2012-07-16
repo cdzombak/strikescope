@@ -3,19 +3,21 @@
 @class SSSStrikeStarResult;
 
 typedef enum {
-    SSSStrikeStarRegionUS,
+    SSSStrikeStarRegionUS = 0,
     SSSStrikeStarRegionUSNW,
     SSSStrikeStarRegionUSNC,
     SSSStrikeStarRegionUSNE,
     SSSStrikeStarRegionUSSW,
     SSSStrikeStarRegionUSSC,
-    SSSStrikeStarRegionUSSE
+    SSSStrikeStarRegionUSSE,
+    SSSStrikeStarRegionCount
 } SSSStrikeStarRegion;
 
 typedef enum {
-    SSSStrikeStarPlotType60mPlot,
+    SSSStrikeStarPlotType60mPlot = 0,
     SSSStrikeStarPlotType60mDensity,
-    SSSStrikeStarPlotType24hSummary
+    SSSStrikeStarPlotType24hSummary,
+    SSSStrikeStarPlotTypeCount
 } SSSStrikeStarPlotType;
 
 @protocol SSSStrikeStarDelegate
